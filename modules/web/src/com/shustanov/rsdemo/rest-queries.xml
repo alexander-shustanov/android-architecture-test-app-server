@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<queries xmlns="http://schemas.haulmont.com/cuba/rest-queries.xsd">
+    <query name="booksAfter" entity="rs$Book" view="_local">
+        <jpql>
+            <![CDATA[select b from rs$Book b where b.createTs > (select an.createTs from rs$Book an where an.id = :id) order by b.createTs]]></jpql>
+        <params>
+            <param name="id" type="java.util.UUID"/>
+        </params>
+    </query>
+</queries>
